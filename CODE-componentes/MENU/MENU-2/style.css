@@ -1,0 +1,171 @@
+*{
+    box-sizing: border-box; /*Tamanho da caixa*/
+}
+body{
+    margin: 0; /*Define expaçamento externo*/
+    font-family: sans-serif; /*Define a fonte*/
+    background-color: #121212; /*Cor de fundo*/
+    color: #fff; /*Cor do texto*/
+}
+.border{
+    border: 1px solid red; /*Definindo a borda */
+}
+.sidebar{
+    position: fixed; /*fixa a posição do conteudo*/
+    top: 0; /*posição de onde começa*/
+    display: flex; /*alinhamento doos item*/
+    flex-direction: column; /*altera a direção do flex*/
+    align-items: start; /*os itens serão alinhados a esquerda*/
+    width: 240px; /*largura da sideBar*/
+    height: 100%; /*altura de toda pagina*/
+    padding: 40px 10px 30px 10px; /*expaço einterno: cima direita baixo esquerda */
+    border-right: 1px solid #2f3336 ; /*borda somente na direita*/
+    transition: all 0.35s; /*definendo velocidade da transação da sidbar*/
+}
+.sidebar-header{
+    width: 100%; /*largura*/
+    margin-bottom: 16px; /*margem externa para baixo*/
+}
+.logo-img{
+    width: 35px; /*largura*/
+    min-height:35px; /*altura minima*/
+    border-radius: 50%;/*arredondamento*/
+    object-fit: cover; /*corta a imgame para caber no container*/
+    transition: 0.4s; /*tempo de trasinção*/
+    margin-left: 10px; /*definindo a margem para esquerda*/
+    cursor: pointer; /*definindo o cursor para ponteiro*/
+}
+.logo-img:hover{
+    transform:scale(1.5); /*almenta o tamanho ao passar mouse*/
+}
+
+.sidebar button{
+    height: 60px; /*altura*/
+    background: transparent; /*cor de fundo trasparente*/
+    border: 0; /*borda*/
+    font-family: inherit; /*inherit herda do pai*/
+    color: inherit; /*inherit herda do pai*/
+    cursor: pointer; /*definindo o curso como ponteiro*/
+    text-align: left; /*alinhado o texto a esquerda*/
+    padding: 0; /*margem interna*/
+}
+.sidebar button > span{
+    display: inline-flex; /*os elemntos irão se comportar como linhas*/
+    align-items: center; /*centraliza o tem ao pai*/
+    gap: 12px; /*espaçamento externo*/
+    height: 48px;
+    padding: 0 16px 0 12px; /*espaçamento interno*/
+    border-radius: 24px;
+    line-height: 1; /*Altura da linha*/
+    transition: all 0.2s; /*tempo de trasinção*/
+}
+
+.sidebar button:hover > span{
+    background-color: rgb(255, 255, 255, 0.08); /*Cor de fundo*/
+}
+.sidebar button i {
+    position: relative; /*posição relativa*/
+    font-size: 28px; /*tamanho da font*/
+    transition: 0.2s;/*tempo de trasinção*/
+}
+.sidebar button span {
+    font-size: 16px; /*Tamanho da fonte*/
+    transition: all 0.35s; /*tempo de trasinção*/
+}
+.sidebar > nav {
+    /*flex-grow quanto vai crescer esse item*/
+    /*flex-shrink: define o quanto vai reduzir*/
+    /*flex-basis tamanho base de cada item*/
+    flex: 1 1 auto;
+    display: flex; /*muda o coportamento do item, deixa um do lado do outro*/
+    flex-direction: column; /*muda a direção do flex*/
+    width: 100%; /*nav pgara 100% da largura da sidbar*/
+}
+
+
+
+.main{
+    margin-left: 250px;
+    margin-right: 6px;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+/*Ajustando sidebar para mostrar somente os icones*/
+
+@media(width < 920px){ /*quando a tel for menor que 920px algo vai acontecer*/
+    .sidebar{
+        width: 72px; /*sidbar passara a ter 72 pix de largura*/
+    }
+    .sidebar button > span{
+        width: 50px; /*defindo a largura*/
+    }
+    .sidebar button > span > span{
+        opacity: 0; /*definindo a trasparencia*/
+        visibility: hidden; /*escondendo o conteudo*/
+    }
+
+    .main{
+        margin-left: 78px;
+    }
+}
+
+.button-mobile{
+    display: none;
+    align-self: flex-start;
+    align-items: center;
+    margin: 16px;
+    background: transparent;
+    color: #fff;
+    border: 0;
+}
+.button-mobile span{
+    font-size: 18px;
+    margin-left: 8px;
+}
+.button-close i{
+    font-size: 32px;
+}
+.menu-mobile{
+    display: none;
+}
+
+.menu-mobile-active{
+    width: 100vw;
+    height:100vh ;
+    background-color: #000;
+    z-index: 99;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.menu-mobile-active button{
+    background: transparent;
+    border: 0;
+    color: inherit;
+    margin-bottom: 16px;
+}
+.menu-mobile-active button > span{
+    display: inline-flex;
+    align-items: center;
+}
+.mobile-tex{
+    font-size: 22px;
+    margin-left: 8px;
+}
+
+@media(max-width: 480px){
+    .sidebar{
+        display: none;
+    }
+    .button-mobile{
+        display: flex;
+    }
+    .main{
+        margin-left: 6px;
+    }
+}

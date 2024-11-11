@@ -1,0 +1,102 @@
+.Navegacão{
+    position: relative;
+    width: 500px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.Navegacão ul{
+    display: flex;
+    width: 350px;
+}
+.Navegacão ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    z-index: 1;
+}
+.Navegacão ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.Navegacão ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr);
+}
+.Navegacão ul li.ativo a .icon{
+   transform: translateY(-32px);
+}
+.Navegacão ul li a .text{
+    position: absolute;
+    color:var(--clr);
+    font-weight:400;
+    font-size: 0.75rem;
+    letter-spacing: 0.5s;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.Navegacão ul li.ativo a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+.indicator{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #29fd;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition: 0.5s;
+}
+
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    left: -22px;
+    height: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+}
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    right: -22px;
+    height: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--clr);
+}
+.Navegacão ul li:nth-child(1).ativo ~ .indicator{
+    transform: translateX(calc(70px * 0));
+}
+.Navegacão ul li:nth-child(2).ativo ~ .indicator{
+    transform: translateX(calc(70px * 1));
+}
+.Navegacão ul li:nth-child(3).ativo ~ .indicator{
+    transform: translateX(calc(70px * 2));
+}
+.Navegacão ul li:nth-child(4).ativo ~ .indicator{
+    transform: translateX(calc(70px * 3));
+}
+.Navegacão ul li:nth-child(5).ativo ~ .indicator{
+    transform: translateX(calc(70px * 4));
+}
